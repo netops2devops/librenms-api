@@ -57,7 +57,7 @@ class Connect:
 
     def add_device(self, device_name, snmp_version, snmp_community):
         """
-        ADD a device to LibreNMS
+        Discover and ADD a new device to LibreNMS
         Returns 'status': 'ok' when operation is a success
         """
         
@@ -65,14 +65,14 @@ class Connect:
         info = { 
                  'hostname' : device_name, 'version' : snmp_version,
                  'community' : snmp_community
-            }
+                }
 
         data = json.dumps(info)
         
         try:
             response = requests.post(url, headers = self.headers, data=data, verify=False).json()
             return response
-     
+
         except Exception as e :
             print("ERROR occured while adding device {0}".format(device_name))
             return response
