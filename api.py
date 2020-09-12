@@ -4,7 +4,7 @@ import json
 import urllib3
 urllib3.disable_warnings()
 
-__version__ = "1.0"
+__version__ = "0.1"
 
 class Connect:
     """
